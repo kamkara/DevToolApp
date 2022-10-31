@@ -1,7 +1,8 @@
 class ExercisesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_exercise, only: %i[ show edit update destroy ]
   before_action :set_course, only: %i[new create]
+  before_action :set_exercise, only: %i[ show edit update destroy ]
+
   # GET /exercises or /exercises.json
   def index
     @exercises = Exercise.all
@@ -13,7 +14,7 @@ class ExercisesController < ApplicationController
 
   # GET /exercises/new
   def new
-    @exercise = @course.exercises.build
+    @exercise = @course.exercises.build()
   end
 
   # GET /exercises/1/edit
@@ -62,16 +63,15 @@ class ExercisesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exercise
-      @exercise = Exercise.find(params[:id])
+      @exercise = Exercise.friendly.find(params[:id])
     end
 
-    #set Course
     def set_course
       @course = Course.friendly.find(params[:course_id])
     end
 
     # Only allow a list of trusted parameters through.
     def exercise_params
-      params.require(:exercise).permit(:title, :exercise_type, :slug, :user_id, :course_id)
+      params.require(:exercise).permit(:title, :topic, :slug, :exercise_type, :user_id, :course_id)
     end
 end

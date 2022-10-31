@@ -17,7 +17,7 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create exercise" do
     assert_difference("Exercise.count") do
-      post exercises_url, params: { exercise: { course_id: @exercise.course_id, exercise_type: @exercise.exercise_type, slug: @exercise.slug, title: @exercise.title, user_id: @exercise.user_id } }
+      post exercises_url, params: { exercise: { course_id: @exercise.course_id, slug: @exercise.slug, title: @exercise.title, user_id: @exercise.user_id } }
     end
 
     assert_redirected_to exercise_url(Exercise.last)
@@ -34,7 +34,7 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update exercise" do
-    patch exercise_url(@exercise), params: { exercise: { course_id: @exercise.course_id, exercise_type: @exercise.exercise_type, slug: @exercise.slug, title: @exercise.title, user_id: @exercise.user_id } }
+    patch exercise_url(@exercise), params: { exercise: { course_id: @exercise.course_id, slug: @exercise.slug, title: @exercise.title, user_id: @exercise.user_id } }
     assert_redirected_to exercise_url(@exercise)
   end
 

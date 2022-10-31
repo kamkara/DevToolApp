@@ -2,14 +2,12 @@
 
 one:
   title: MyString
-  exercise_type: 1
   slug: MyString
   user: one
   course: one
 
 two:
   title: MyString
-  exercise_type: 1
   slug: MyString
   user: two
   course: two

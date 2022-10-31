@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :courses , only: [:show] do
     resources :exercises, only:[:new, :create]
   end

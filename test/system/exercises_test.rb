@@ -15,7 +15,6 @@ class ExercisesTest < ApplicationSystemTestCase
     click_on "New exercise"
 
     fill_in "Course", with: @exercise.course_id
-    fill_in "Exercise type", with: @exercise.exercise_type
     fill_in "Slug", with: @exercise.slug
     fill_in "Title", with: @exercise.title
     fill_in "User", with: @exercise.user_id
@@ -30,7 +29,6 @@ class ExercisesTest < ApplicationSystemTestCase
     click_on "Edit this exercise", match: :first
 
     fill_in "Course", with: @exercise.course_id
-    fill_in "Exercise type", with: @exercise.exercise_type
     fill_in "Slug", with: @exercise.slug
     fill_in "Title", with: @exercise.title
     fill_in "User", with: @exercise.user_id

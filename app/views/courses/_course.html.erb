@@ -1,12 +1,18 @@
 <div id="<%= dom_id course %>">
-<div class="border m-2">
-    <div class="text-xl p-2">
-        <h1 class="font-bold"><%= course.title %></h1>
-    </div>
-    <div class="border m-2 p-2">
-        <%= truncate(strip_tags(course.content.to_s.html_safe), length: 700) %>
-    </div>
-</div>
+  <!-- Show course card-->
+  <div class="border m-2">
+      <div class="text-xl p-2">
+          <h1 class="font-bold"><%= course.title %></h1>
+      </div>
+      <div class="border m-2 p-2">
+          <%= truncate(strip_tags(course.content.to_s.html_safe), length: 700) %>
+      </div>
+
+      <!-- Exercices Card-->
+      <div class="border m-2">
+        <%= render "courses/shared/exercices" %>
+      </div>
+  </div>
 
   <% if action_name != "show" %>
     <%= link_to "Show this course", course, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

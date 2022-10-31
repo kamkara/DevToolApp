@@ -2,7 +2,9 @@ class Course < ApplicationRecord
   ######### RELATIONS  ########
   belongs_to :user
   has_rich_text :content
-
+  has_many :exercises, class_name: "Exercise", foreign_key: "course_id", dependent: :destroy
+  
+  
   ######### VALIDATIONS  ########
   validates :title, :content, :slug, :user_id, presence: true
   

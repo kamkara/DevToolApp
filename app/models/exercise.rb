@@ -5,13 +5,11 @@ class Exercise < ApplicationRecord
 
   validates :title, :slug, :topic, :user_id, :course_id, :exercise_type, presence: true
 
-  enum exercise_type: { single_choice: 0, multiple_choice: 1, long_answer: 2 }
+  #enum exercise_type: { single_choice: 0, multiple_choice: 1, long_answer: 2 }
 
   def self.exercise_type_select
-    exercise_types.keys.map { |k| [k.titleize, k] }
+    #exercise_types.keys.map { |k| [k.titleize, k] }
   end
-
-
 
 
   ######### URL'S  ########
